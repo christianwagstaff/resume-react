@@ -2,13 +2,23 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: var(--gap);
 }
 
 nav ul {
-    display: flex;
+    display: none;
     gap: var(--gap);
 }
 
-nav li {
-    list-style: none;
+nav ul.active {
+    display: flex;
+}
+
+@media (min-width: 700px) {
+    nav ul {
+        display: flex;
+    }
+    .showHideNav {
+        display: none;
+    }
 }
