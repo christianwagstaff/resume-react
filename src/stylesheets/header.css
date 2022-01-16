@@ -2,7 +2,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: var(--nav-size);
+    min-height: var(--nav-size);
     padding: 0 var(--gap); 
     background-color: var(--light);
     font-size: 2rem;
@@ -14,6 +14,12 @@ nav {
     flex-grow: 1;
     position: relative;
     font-size: 1.5rem;
+}
+
+.showHideNav svg {
+    height: 2rem;
+    width: auto;
+    cursor: pointer;
 }
 
 .navbar-nav {
@@ -34,6 +40,10 @@ nav {
     border-radius: 0 0 calc(var(--gap) / 2) calc(var(--gap) / 2);
     border: 1px solid lightgrey;
     border-top: none;
+}
+
+.navbar-item {
+    cursor: pointer;
 }
 
 @media (min-width: 700px) {
