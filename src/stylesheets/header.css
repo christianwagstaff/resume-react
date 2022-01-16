@@ -2,21 +2,44 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--gap);
+    height: var(--nav-size);
+    padding: 0 var(--gap); 
+    background-color: var(--light);
+    font-size: 2rem;
 }
 
-nav ul {
+nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.navbar-nav {
     display: none;
     gap: var(--gap);
 }
 
-nav ul.active {
+.dropdown .navbar-nav.active {
     display: flex;
+    flex-direction: column;
+}
+
+.dropdown {
+    position: absolute;
+    top: 30px;
+    padding: var(--gap);
+    background-color: var(--light);
+    border-radius: 0 0 calc(var(--gap) / 2) calc(var(--gap) / 2);
+    border: 1px solid lightgrey;
+    border-top: none;
 }
 
 @media (min-width: 700px) {
-    nav ul {
+    .navbar-nav {
         display: flex;
+        flex-direction: row;
     }
     .showHideNav {
         display: none;
