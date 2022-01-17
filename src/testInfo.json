@@ -1,7 +1,8 @@
 {
     "about": {
         "headline": "This is my test Headline - Look At ME",
-        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia omnis laborum incidunt nemo obcaecati. Rem sequi nihil perferendis quam aut facilis consequuntur consectetur minima minus, est obcaecati omnis repellat veritatis."
+        "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia omnis laborum incidunt nemo obcaecati. Rem sequi nihil perferendis quam aut facilis consequuntur consectetur minima minus, est obcaecati omnis repellat veritatis.",
+        "footline": "This is the footer info"
     },
     "projects": [
         {
@@ -14,7 +15,20 @@
         },
         {
             "name": "Project 1",
-            "details": "Project 1 Details - Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia omnis laborum incidunt nemo obcaecati. Rem sequi nihil perferendis quam aut facilis consequuntur consectetur minima minus, est obcaecati omnis repellat veritatis"
+            "details": "Project 1 Details - Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia omnis laborum incidunt nemo obcaecati. Rem sequi nihil perferendis quam aut facilis consequuntur consectetur minima minus, est obcaecati omnis repellat veritatis",
+            "img": "https://source.unsplash.com/random"
         }
-    ]
+    ],
+    "contact": {
+        "links": [
+            {
+                "name": "LinkedIn",
+                "url": "http://linkedin.com"
+            },
+            {
+                "name": "GitHub",
+                "url": "http://github.com"
+            }
+        ]
+    }
 }

@@ -1,5 +1,4 @@
 .about {
-    padding: var(--gap);
     font-size: 1rem;
     margin-top: var(--gap);
 }
@@ -14,10 +13,4 @@
 
 .about-info {
     line-height: 1.5rem;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
 }
