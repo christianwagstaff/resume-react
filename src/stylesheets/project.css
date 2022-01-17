@@ -1,0 +1,14 @@
+.project-list {
+    padding: var(--gap);
+}
+
+.project {
+    padding: var(--gap);
+    background-color: var(--light);
+    border-radius: calc(var(--gap) / 2);
+    gap: calc(var(--gap) / 2);
+}
+
+.project-name {
+    font-weight: bold;
+}

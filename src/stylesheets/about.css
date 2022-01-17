@@ -1,0 +1,23 @@
+.about {
+    padding: var(--gap);
+    font-size: 1rem;
+    margin-top: var(--gap);
+}
+
+.about-headline {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-bottom: var(--gap);
+    border-bottom: 1px solid var(--light);
+}
+
+.about-info {
+    line-height: 1.5rem;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
