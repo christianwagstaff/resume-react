@@ -8,9 +8,9 @@ const Header = () => {
     <header>
       <h1>Haily Gonzalez</h1>
       <NavBar>
-        <NavItem name="Home" />
-        <NavItem name="Projects" />
-        <NavItem name="About Me" />
+        <NavItem name="Home" url="/" />
+        <NavItem name="Projects" url="/projects" />
+        <NavItem name="About Me" url="/about" />
       </NavBar>
     </header>
   );

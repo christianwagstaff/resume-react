@@ -4,10 +4,10 @@ import ContactEditor from "../components/ContactEditor";
 
 const Editor = () => {
   return (
-    <div>
+    <main>
       <AboutEditor />
       <ContactEditor />
-    </div>
+    </main>
   );
 };
 
