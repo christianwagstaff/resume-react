@@ -3,7 +3,7 @@
 }
 
 .project {
-    padding: var(--gap);
+    padding: calc(var(--gap) * 2);
     background-color: var(--light);
     border-radius: calc(var(--gap) / 2);
     gap: calc(var(--gap) / 2);
@@ -11,4 +11,8 @@
 
 .project-name {
     font-weight: bold;
+}
+
+.project-details {
+    line-height: 1.5rem;
 }
