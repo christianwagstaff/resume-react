@@ -44,6 +44,7 @@ nav {
 
 .navbar-item {
     cursor: pointer;
+    font-size: 1.4rem;
 }
 
 @media (min-width: 600px) {

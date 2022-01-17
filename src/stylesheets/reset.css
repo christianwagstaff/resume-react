@@ -49,6 +49,7 @@ table {
 button {
 	border: none;
 	background-color: inherit;
+	font-family: inherit;
 }
 
 *, *::after, *::before {

@@ -1,40 +1,52 @@
 /* Set Up Global Variables */
 :root {
-    --gap: 1rem;
-    --nav-size: 60px;
-    --light: rgb(235, 235, 235);
-    --small-width: 600px;
+  --gap: 1rem;
+  --nav-size: 60px;
+  --light: rgb(235, 235, 235);
+  --small-width: 600px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--gap);
-    gap: var(--gap)
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap);
+  gap: var(--gap);
+  flex-grow: 1;
 }
 
 main > * {
-    width: min(100%, 700px);
+  width: min(100%, 700px);
 }
 
 .flex-column {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
 }
 
 .flex-horizontal {
-    display: flex;
-    gap: var(--gap);
-    justify-content: flex-start;
+  display: flex;
+  gap: var(--gap);
+  justify-content: flex-start;
 }
 
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 em {
-    font-style: italic;
+  font-style: italic;
+}
+
+.font-small {
+  font-size: 1rem;
 }
