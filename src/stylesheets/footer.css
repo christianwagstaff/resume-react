@@ -3,5 +3,4 @@ footer {
     min-height: var(--nav-size);
     padding: var(--gap); 
     background-color: var(--light);
-    font-size: 2rem;
 }

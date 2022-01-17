@@ -5,11 +5,13 @@ import "../stylesheets/project.css";
 
 const Projects = () => {
   return (
-    <section className="project-list flex-column">
+    <section className="flex-column projects">
       <h2>Selected Projects</h2>
-      {[...info.projects].map((proj, index) => (
-        <Project key={index} project={proj} />
-      ))}
+      <div className="project-list flex-column">
+        {[...info.projects].map((proj, index) => (
+          <Project key={index} project={proj} />
+        ))}
+      </div>
     </section>
   );
 };

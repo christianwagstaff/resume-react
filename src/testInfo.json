@@ -1,6 +1,6 @@
 {
     "about": {
-        "headline": "This is my test Headline - Look At ME",
+        "headline": "This is my test Headline - <strong><em>Look At ME</em></strong>",
         "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia omnis laborum incidunt nemo obcaecati. Rem sequi nihil perferendis quam aut facilis consequuntur consectetur minima minus, est obcaecati omnis repellat veritatis.",
         "footline": "This is the footer info"
     },

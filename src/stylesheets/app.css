@@ -3,6 +3,7 @@
     --gap: 1rem;
     --nav-size: 60px;
     --light: rgb(235, 235, 235);
+    --small-width: 600px;
 }
 
 main {
@@ -28,4 +29,12 @@ main > * {
     display: flex;
     gap: var(--gap);
     justify-content: flex-start;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
 }

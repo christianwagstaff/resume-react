@@ -3,6 +3,12 @@
     background-color: var(--light);
     border-radius: calc(var(--gap) / 2);
     gap: calc(var(--gap) / 2);
+    width: 100%;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
 }
 
 .project-name {
@@ -11,4 +17,15 @@
 
 .project-details {
     line-height: 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+    .projects .project-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project {
+        width: fit-content;
+    }
 }
