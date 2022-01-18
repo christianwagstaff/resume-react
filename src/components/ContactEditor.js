@@ -9,8 +9,8 @@ const ContactEditor = () => {
       <div className="flex-horizontal">
         {[...info.contact.links].map((contact, index) => (
           <form key={index} className="flex-horizontal small">
-            <input name="name" value={contact.name} />
-            <input name="url" value={contact.url} />
+            <input name="name" defaultValue={contact.name} />
+            <input name="url" defaultValue={contact.url} />
             <input type="submit" value="Update" />
           </form>
         ))}

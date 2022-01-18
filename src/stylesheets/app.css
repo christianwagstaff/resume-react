@@ -65,3 +65,7 @@ em {
   text-decoration: none;
   color: inherit;
 }
+
+.small-gap {
+  gap: calc(var(--gap) / 2);
+}

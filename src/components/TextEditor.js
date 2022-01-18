@@ -26,12 +26,13 @@ const TextEditor = (props) => {
         init={{
           height: props.height,
           inline: props.inline || false,
+          placeholder: props.placeholder ? props.placeholder : null,
           menubar: false,
           plugins: [
             "advlist autolink lists link image",
             "charmap print preview anchor help",
             "searchreplace visualblocks code",
-            "insertdatetime media table paste wordcount",
+            "insertdatetime media table paste wordcount autoresize",
           ],
           toolbar:
             "undo redo | fontselect fontsizeselect |  formatselect | bold italic underline| \
@@ -56,6 +57,7 @@ TextEditor.propTypes = {
   initialValue: PropTypes.any,
   height: PropTypes.number,
   inline: PropTypes.bool,
+  placeholder: PropTypes.any,
 };
 
 export default TextEditor;

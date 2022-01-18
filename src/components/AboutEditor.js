@@ -6,12 +6,12 @@ import TextEditor from "./TextEditor";
 const AboutEditor = () => {
   return (
     <section className="about flex-column">
-      <h2 className="about-headline">
+      <div className="about-headline">
         <TextEditor initialValue={info.about.headline} inline={true} />
-      </h2>
-      <p className="about-info">
+      </div>
+      <div className="about-info">
         <TextEditor initialValue={info.about.about} inline={true} />
-      </p>
+      </div>
     </section>
   );
 };
