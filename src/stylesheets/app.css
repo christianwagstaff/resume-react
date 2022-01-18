@@ -24,7 +24,7 @@ main {
 }
 
 main > * {
-  width: min(100%, 700px);
+  width: min(100%, 1000px);
 }
 
 .flex-column {
@@ -37,6 +37,7 @@ main > * {
   display: flex;
   gap: var(--gap);
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 strong {
@@ -52,7 +53,7 @@ em {
 }
 
 .btn {
-  padding: calc(var(--gap) ) var(--gap);
+  padding: calc(var(--gap)) var(--gap);
   border-radius: calc(var(--gap) / 2);
 }
 

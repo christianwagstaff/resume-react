@@ -1,19 +1,24 @@
 import React from "react";
 import info from "../testInfo.json";
-import TextEditor from "./TextEditor";
 
 const ContactEditor = () => {
   return (
     <div className="flex-column">
       <h3>Contact Info</h3>
       <p>Find me on</p>
-      <div className="flex-column">
+      <div className="flex-horizontal">
         {[...info.contact.links].map((contact, index) => (
-          <div key={index} className="flex-horizontal">
-            <TextEditor initialValue={contact.name} inline={true} />
-            <TextEditor initialValue={contact.url} inline={true} />
-          </div>
+          <form key={index} className="flex-horizontal small">
+            <input name="name" value={contact.name} />
+            <input name="url" value={contact.url} />
+            <input type="submit" value="Update" />
+          </form>
         ))}
+        <form className="flex-horizontal small">
+          <input name="name" value="Display Name" />
+          <input name="url" value="Url" />
+          <input type="submit" value="Create New Link" />
+        </form>
       </div>
     </div>
   );
