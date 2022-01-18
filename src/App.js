@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./stylesheets/app.css";
 import Login from "./routes/Login";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/editor" element={<Editor />} />
+          <Route
+            path="/editor"
+            element={
+              <PrivateRoute>
+                <Editor />
+              </PrivateRoute>
+            }
+          ></Route>
         </Routes>
         <Footer />
       </Router>
