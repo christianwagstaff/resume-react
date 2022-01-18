@@ -60,3 +60,8 @@ em {
 .right {
   align-self: flex-end;
 }
+
+.no-underline {
+  text-decoration: none;
+  color: inherit;
+}

@@ -15,8 +15,8 @@ const ContactEditor = () => {
           </form>
         ))}
         <form className="flex-horizontal small">
-          <input name="name" value="Display Name" />
-          <input name="url" value="Url" />
+          <input name="name" placeholder="Display Name" />
+          <input name="url" placeholder="Url" />
           <input type="submit" value="Create New Link" />
         </form>
       </div>
