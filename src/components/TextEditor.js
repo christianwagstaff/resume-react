@@ -2,18 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import PropTypes from "prop-types";
 import parse from "html-react-parser";
+import fetchAPI from "../functions/fetchAPI";
 
 const TextEditor = (props) => {
   const editorRef = useRef(null);
   const [dirty, setDirty] = useState(false);
   useEffect(() => setDirty(false), [props.initialValue]);
-  const save = () => {
+  const save = async () => {
     if (editorRef.current) {
       const content = editorRef.current.getContent();
       setDirty(false);
       editorRef.current.setDirty(false);
       // Add Fetch To save data in DB
-      console.log(content);
+      const objName = props.objName;
+      const data = { [objName]: content, id: props.id };
+      const response = await fetchAPI(props.src, props.type, data);
+      console.log(response);
     }
   };
   return (
@@ -21,7 +25,7 @@ const TextEditor = (props) => {
       {dirty && <p className="font-small">You have unsaved content!</p>}
       <Editor
         apiKey={process.env.REACT_APP_TINY_API}
-        initialValue={parse(props.initialValue)}
+        initialValue={`${parse(props.initialValue)}`}
         onDirty={() => setDirty(true)}
         onInit={(evt, editor) => (editorRef.current = editor)}
         init={{
@@ -56,10 +60,14 @@ const TextEditor = (props) => {
 };
 
 TextEditor.propTypes = {
-  initialValue: PropTypes.any,
+  initialValue: PropTypes.string,
   height: PropTypes.number,
   inline: PropTypes.bool,
   placeholder: PropTypes.any,
+  src: PropTypes.string,
+  objName: PropTypes.string,
+  type: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default TextEditor;

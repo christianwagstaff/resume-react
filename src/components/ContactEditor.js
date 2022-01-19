@@ -76,7 +76,6 @@ const ContactEditor = () => {
       contactId: id,
       links: { name: e.target[0].value, url: e.target[1].value },
     };
-    // TODO Make the state refresh when new contact is submitted
     console.log(JSON.stringify(newContact));
     const response = await fetch(
       `${process.env.REACT_APP_BASE_URL}/api/contact`,

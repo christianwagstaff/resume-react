@@ -27,7 +27,7 @@ const Project = (props) => {
         <TextEditor
           className="project-details"
           initialValue={proj.details ? proj.details : ""}
-          placeholder={proj.details ? false : "Project Details"}
+          placeholder={proj.details ? "" : "Project Details"}
         />
       </label>
     </form>

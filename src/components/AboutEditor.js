@@ -15,7 +15,6 @@ const AboutEditor = () => {
       })
       .then((data) => {
         setData(data.about);
-        console.log(data);
       })
       .catch((err) => {
         console.error(`Data Fetching: ${err}`);
@@ -27,12 +26,20 @@ const AboutEditor = () => {
         <TextEditor
           initialValue={data.headline ? data.headline : "About Headline"}
           inline={true}
+          src="about"
+          type="put"
+          objName="headline"
+          id={data._id}
         />
       </div>
       <div className="about-info">
         <TextEditor
           initialValue={data.about ? data.about : "About Info"}
           inline={true}
+          src="about"
+          type="put"
+          objName="about"
+          id={data._id}
         />
       </div>
     </section>
