@@ -49,7 +49,7 @@ const ContactEditor = () => {
   const deleteItem = async (e, id, index) => {
     e.preventDefault();
     const deleteContact = {
-      contactId: id,
+      id: id,
     };
     const response = await fetch(
       `${process.env.REACT_APP_BASE_URL}/api/contact`,
@@ -73,7 +73,7 @@ const ContactEditor = () => {
   const updateContact = async (e, id, index) => {
     e.preventDefault();
     const newContact = {
-      contactId: id,
+      id,
       links: { name: e.target[0].value, url: e.target[1].value },
     };
     console.log(JSON.stringify(newContact));
@@ -90,9 +90,12 @@ const ContactEditor = () => {
       }
     );
     const contact = await response.json();
+    console.log(contact);
+    const newData = replaceAtIndex(data.contact, index, contact.contact);
+    console.log(newData);
     if (contact.msg === "Contact Updated") {
       setData({
-        contact: replaceAtIndex(data.contact, index, contact.contact),
+        contact: newData,
       });
     }
   };
