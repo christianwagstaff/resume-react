@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import PropTypes from "prop-types";
+import parse from "html-react-parser";
 
 const TextEditor = (props) => {
   const editorRef = useRef(null);
@@ -20,7 +21,7 @@ const TextEditor = (props) => {
       {dirty && <p className="font-small">You have unsaved content!</p>}
       <Editor
         apiKey={process.env.REACT_APP_TINY_API}
-        initialValue={props.initialValue}
+        initialValue={parse(props.initialValue)}
         onDirty={() => setDirty(true)}
         onInit={(evt, editor) => (editorRef.current = editor)}
         init={{
@@ -28,6 +29,7 @@ const TextEditor = (props) => {
           inline: props.inline || false,
           placeholder: props.placeholder ? props.placeholder : null,
           menubar: false,
+          encoding: "xml",
           plugins: [
             "advlist autolink lists link image",
             "charmap print preview anchor help",
