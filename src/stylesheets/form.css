@@ -10,6 +10,13 @@ form {
 
 input {
   padding: var(--gap);
+  font-size: 0.75rem;
+}
+
+form button {
+  padding: var(--gap);
+  font-size: 0.75rem;
+  height: fit-content;
 }
 
 form.small {
@@ -18,6 +25,7 @@ form.small {
   gap: calc(var(--gap) / 2);
 }
 
-form.small input {
+form.small input,
+form.small button {
   padding: calc(var(--gap) / 2);
 }
