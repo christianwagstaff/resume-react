@@ -18,7 +18,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename="/resume-react">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
