@@ -1,14 +1,15 @@
 import React from "react";
 import Project from "./Project";
-import info from "../testInfo.json";
+import PropTypes from "prop-types";
 import "../stylesheets/project.css";
 
-const Projects = () => {
+const Projects = (props) => {
+  const info = props.info ? props.info : [];
   return (
     <section className="flex-column projects">
       <h2>Selected Projects</h2>
       <div className="project-list flex-column">
-        {[...info.projects].map((proj, index) => (
+        {info.map((proj, index) => (
           <Project key={index} project={proj} />
         ))}
       </div>
@@ -16,4 +17,7 @@ const Projects = () => {
   );
 };
 
+Projects.propTypes = {
+  info: PropTypes.array,
+};
 export default Projects;
