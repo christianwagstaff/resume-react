@@ -14,10 +14,14 @@ const TextEditor = (props) => {
       setDirty(false);
       editorRef.current.setDirty(false);
       // Add Fetch To save data in DB
-      const objName = props.objName;
-      const data = { [objName]: content, id: props.id };
-      const response = await fetchAPI(props.src, props.type, data);
-      console.log(response);
+      if (props.onSave) {
+        props.onSave(content);
+      } else {
+        const objName = props.objName;
+        const data = { [objName]: content, id: props.id };
+        const response = await fetchAPI(props.src, props.type, data);
+        console.log(response);
+      }
     }
   };
   return (
@@ -25,7 +29,7 @@ const TextEditor = (props) => {
       {dirty && <p className="font-small">You have unsaved content!</p>}
       <Editor
         apiKey={process.env.REACT_APP_TINY_API}
-        initialValue={`${parse(props.initialValue)}`}
+        initialValue={props.initialValue ? parse(props.initialValue) : ""}
         onDirty={() => setDirty(true)}
         onInit={(evt, editor) => (editorRef.current = editor)}
         init={{
@@ -60,7 +64,7 @@ const TextEditor = (props) => {
 };
 
 TextEditor.propTypes = {
-  initialValue: PropTypes.string,
+  initialValue: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   height: PropTypes.number,
   inline: PropTypes.bool,
   placeholder: PropTypes.any,
@@ -68,6 +72,7 @@ TextEditor.propTypes = {
   objName: PropTypes.string,
   type: PropTypes.string,
   id: PropTypes.string,
+  onSave: PropTypes.func,
 };
 
 export default TextEditor;

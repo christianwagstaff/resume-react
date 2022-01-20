@@ -12,7 +12,6 @@ const fetchAPI = async (param, type, data) => {
     }
   );
   const result = await response.json();
-  console.log(JSON.stringify(data));
   return result;
 };
 
