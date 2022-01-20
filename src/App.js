@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import "./stylesheets/app.css";
 import Login from "./routes/Login";
 import Logout from "./routes/Logout";
+import Register from "./routes/Register";
 import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="login" element={<Login />} />
             <Route path="logout" element={<Logout />} />
+            <Route path="register" element={<Register />} />
             <Route path="*" element={<Login />} />
           </Route>
           <Route path="/editor" element={<EditorLayout />}>
