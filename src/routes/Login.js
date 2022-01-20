@@ -4,8 +4,8 @@ import "../stylesheets/form.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("test@email.com");
-  const [password, setPassword] = useState("123");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const submitLogin = async (e) => {
     if (!username || !password) {
       return;
