@@ -22,10 +22,10 @@ const Project = (props) => {
     } else {
       response = await fetchAPI("projects", "post", content);
       props.onSubmit(response.project);
+      setName("");
+      setDetails("");
+      setImg("");
     }
-    setName("");
-    setDetails("");
-    setImg("");
   };
   return (
     <form
@@ -52,7 +52,7 @@ const Project = (props) => {
       </label>
       <label className="flex-column small-gap">
         Project Details:
-        <input
+        <textarea
           className="project-details"
           value={details}
           placeholder={proj.details ? "" : "Project Details"}
