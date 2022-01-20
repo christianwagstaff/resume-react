@@ -6,7 +6,7 @@ const AboutEditor = () => {
   const [data, setData] = useState({});
   // Load Data on initial load
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/about`)
+    fetch(`https://whispering-springs-24965.herokuapp.com/api/about`)
       .then((response) => {
         if (response.ok) {
           return response.json();

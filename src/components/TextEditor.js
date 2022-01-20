@@ -28,7 +28,7 @@ const TextEditor = (props) => {
     <>
       {dirty && <p className="font-small">You have unsaved content!</p>}
       <Editor
-        apiKey={process.env.REACT_APP_TINY_API}
+        apiKey="p00ee6zalc10gzda4aot663g3yzcgenejz65f71fefvnwstg"
         initialValue={props.initialValue ? parse(props.initialValue) : ""}
         onDirty={() => setDirty(true)}
         onInit={(evt, editor) => (editorRef.current = editor)}

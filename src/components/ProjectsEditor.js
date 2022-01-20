@@ -8,7 +8,7 @@ const Projects = () => {
   const [data, setData] = useState([]);
   // Get Project List on Load
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/projects`)
+    fetch(`https://whispering-springs-24965.herokuapp.com/api/projects`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -35,7 +35,6 @@ const Projects = () => {
   };
 
   const onSubmit = (newProj) => {
-    console.log(newProj);
     setData([...data, newProj]);
   };
 

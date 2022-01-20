@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/users/login`,
+        `https://whispering-springs-24965.herokuapp.com/users/login`,
         {
           method: "post",
           headers: {

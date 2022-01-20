@@ -5,7 +5,7 @@ const ContactEditor = () => {
   const [data, setData] = useState({ contact: [] });
   // Get Data From API on Load
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/contact`)
+    fetch(`https://whispering-springs-24965.herokuapp.com/api/contact`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -29,7 +29,7 @@ const ContactEditor = () => {
       links: { name: e.target[0].value, url: e.target[1].value },
     };
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/api/contact`,
+      `https://whispering-springs-24965.herokuapp.com/api/contact`,
       {
         method: "post",
         headers: {
@@ -52,7 +52,7 @@ const ContactEditor = () => {
       id: id,
     };
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/api/contact`,
+      `https://whispering-springs-24965.herokuapp.com/api/contact`,
       {
         method: "delete",
         headers: {
@@ -76,9 +76,8 @@ const ContactEditor = () => {
       id,
       links: { name: e.target[0].value, url: e.target[1].value },
     };
-    console.log(JSON.stringify(newContact));
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/api/contact`,
+      `https://whispering-springs-24965.herokuapp.com/api/contact`,
       {
         method: "put",
         headers: {
@@ -90,9 +89,7 @@ const ContactEditor = () => {
       }
     );
     const contact = await response.json();
-    console.log(contact);
     const newData = replaceAtIndex(data.contact, index, contact.contact);
-    console.log(newData);
     if (contact.msg === "Contact Updated") {
       setData({
         contact: newData,

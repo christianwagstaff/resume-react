@@ -6,7 +6,9 @@ import Contact from "../components/Contact";
 const HomePage = () => {
   const [data, setData] = useState({});
   useEffect(async () => {
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api`);
+    const response = await fetch(
+      `https://whispering-springs-24965.herokuapp.com/api`
+    );
     const results = await response.json();
     setData(results);
   }, []);

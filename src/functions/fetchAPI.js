@@ -1,6 +1,6 @@
 const fetchAPI = async (param, type, data) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BASE_URL}/api/${param}`,
+    `https://whispering-springs-24965.herokuapp.com/api/${param}`,
     {
       method: type,
       headers: {
