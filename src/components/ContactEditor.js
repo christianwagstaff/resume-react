@@ -1,23 +1,11 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 
-const ContactEditor = () => {
-  const [data, setData] = useState({ contact: [] });
+const ContactEditor = (props) => {
+  const [data, setData] = useState([]);
   // Get Data From API on Load
   useEffect(() => {
-    fetch(`https://whispering-springs-24965.herokuapp.com/api/contact`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => {
-        console.error(`Data Fetching: ${err}`);
-      });
+    setData(props.info);
   }, []);
 
   const submitNewContact = async (e) => {
@@ -41,7 +29,7 @@ const ContactEditor = () => {
       }
     );
     const contact = await response.json();
-    setData({ contact: [...data.contact, contact.contact] });
+    setData([...data, contact.contact]);
     e.target[0].value = "";
     e.target[1].value = "";
   };
@@ -65,8 +53,8 @@ const ContactEditor = () => {
     );
     const contact = await response.json();
     if (contact.msg === "Contact Deleted") {
-      const updatedData = removeAtIndex(data.contact, index);
-      setData({ contact: updatedData });
+      const updatedData = removeAtIndex(data, index);
+      setData(updatedData);
     }
   };
 
@@ -89,11 +77,9 @@ const ContactEditor = () => {
       }
     );
     const contact = await response.json();
-    const newData = replaceAtIndex(data.contact, index, contact.contact);
+    const newData = replaceAtIndex([...data], index, contact.contact);
     if (contact.msg === "Contact Updated") {
-      setData({
-        contact: newData,
-      });
+      setData(newData);
     }
   };
 
@@ -102,7 +88,7 @@ const ContactEditor = () => {
       <h3>Contact Info</h3>
       <p>Find me on</p>
       <div className="flex-horizontal">
-        {[...data.contact].map((contact, index) => (
+        {[...data].map((contact, index) => (
           <form
             key={contact._id}
             className="flex-horizontal small"
@@ -123,6 +109,10 @@ const ContactEditor = () => {
       </div>
     </div>
   );
+};
+
+ContactEditor.propTypes = {
+  info: PropTypes.array,
 };
 
 export default ContactEditor;
@@ -150,7 +140,7 @@ const ContactForm = (props) => {
 };
 
 ContactForm.propTypes = {
-  onSubmit: propTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 function removeAtIndex(array, index) {

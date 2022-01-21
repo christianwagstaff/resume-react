@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import PropTypes from "prop-types";
-import parse from "html-react-parser";
 import fetchAPI from "../functions/fetchAPI";
 
 const TextEditor = (props) => {
@@ -29,7 +28,7 @@ const TextEditor = (props) => {
       {dirty && <p className="font-small">You have unsaved content!</p>}
       <Editor
         apiKey="p00ee6zalc10gzda4aot663g3yzcgenejz65f71fefvnwstg"
-        initialValue={props.initialValue ? parse(props.initialValue) : ""}
+        initialValue={props.initialValue ? props.initialValue : ""}
         onDirty={() => setDirty(true)}
         onInit={(evt, editor) => (editorRef.current = editor)}
         init={{
@@ -64,7 +63,7 @@ const TextEditor = (props) => {
 };
 
 TextEditor.propTypes = {
-  initialValue: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  initialValue: PropTypes.any,
   height: PropTypes.number,
   inline: PropTypes.bool,
   placeholder: PropTypes.any,

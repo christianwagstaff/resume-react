@@ -1,24 +1,14 @@
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import "../stylesheets/about.css";
 import TextEditor from "./TextEditor";
 
-const AboutEditor = () => {
+const AboutEditor = (props) => {
   const [data, setData] = useState({});
   // Load Data on initial load
   useEffect(() => {
-    fetch(`https://whispering-springs-24965.herokuapp.com/api/about`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        setData(data.about);
-      })
-      .catch((err) => {
-        console.error(`Data Fetching: ${err}`);
-      });
+    // console.log(props.info);
+    setData(props.info);
   }, []);
   return (
     <section className="about flex-column">
@@ -44,6 +34,10 @@ const AboutEditor = () => {
       </div>
     </section>
   );
+};
+
+AboutEditor.propTypes = {
+  info: PropTypes.object,
 };
 
 export default AboutEditor;

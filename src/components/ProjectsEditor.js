@@ -3,24 +3,13 @@ import Project from "./ProjectEditor";
 import "../stylesheets/project.css";
 import { removeAtIndex } from "../functions/arrayUtils";
 import fetchAPI from "../functions/fetchAPI";
+import PropTypes from "prop-types";
 
-const Projects = () => {
+const Projects = (props) => {
   const [data, setData] = useState([]);
   // Get Project List on Load
   useEffect(() => {
-    fetch(`https://whispering-springs-24965.herokuapp.com/api/projects`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        setData(data.projects);
-      })
-      .catch((err) => {
-        console.error(`Data Fetching: ${err}`);
-      });
+    setData(props.info);
   }, []);
 
   const deleteItem = async (id, index) => {
@@ -55,6 +44,10 @@ const Projects = () => {
       </div>
     </section>
   );
+};
+
+Projects.propTypes = {
+  info: PropTypes.array,
 };
 
 export default Projects;
