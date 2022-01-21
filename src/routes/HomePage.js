@@ -8,7 +8,8 @@ import fetchResumeInfo from "../functions/fetchResumeInfo";
 const HomePage = () => {
   const { isLoading, isError, data, error } = useQuery(
     "resumeInfo",
-    fetchResumeInfo
+    fetchResumeInfo,
+    { staleTime: 1000 * 60 * 60, cacheTime: Infinity }
   );
   if (isLoading) {
     return <div>Loading</div>;
