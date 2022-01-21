@@ -3,10 +3,15 @@ import ReactDOM from "react-dom";
 import "./stylesheets/reset.css";
 import "./stylesheets/index.css";
 import App from "./App";
+import { QueryClientProvider, QueryClient } from "react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
