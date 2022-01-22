@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import fetchAPI from "../functions/fetchAPI";
+import { useNavigate } from "react-router-dom";
 
 const Project = (props) => {
+  const navigate = useNavigate();
   const proj = props.project;
   const [name, setName] = useState(proj.name ? proj.name : "");
   const [img, setImg] = useState(proj.img ? proj.img : "");
   const [details, setDetails] = useState(proj.details ? proj.details : "");
   function onDelete(e) {
     e.preventDefault();
-    props.onDelete();
+    const confirm = window.confirm(
+      "Are you sure you want to delete this project?"
+    );
+    if (confirm) {
+      props.onDelete();
+    }
   }
   const submitProject = async (e) => {
     e.preventDefault();
@@ -18,9 +25,14 @@ const Project = (props) => {
     if (props.id) {
       content.id = props.id;
       response = await fetchAPI("projects", "put", content);
-      console.log(response);
+      if (response.status === 401) {
+        return navigate("/logout");
+      }
     } else {
       response = await fetchAPI("projects", "post", content);
+      if (response.status === 401) {
+        return navigate("/logout");
+      }
       props.onSubmit(response.project);
       setName("");
       setDetails("");
@@ -62,7 +74,7 @@ const Project = (props) => {
       <input type="submit" value={proj.name ? "Update" : "Save"} />
       {proj.name && (
         <button className="edit delete" onClick={onDelete}>
-          Delete
+          X
         </button>
       )}
     </form>

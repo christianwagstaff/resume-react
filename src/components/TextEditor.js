@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import PropTypes from "prop-types";
 import fetchAPI from "../functions/fetchAPI";
+import { useNavigate } from "react-router-dom";
 
 const TextEditor = (props) => {
+  const navigate = useNavigate();
   const editorRef = useRef(null);
   const [dirty, setDirty] = useState(false);
   useEffect(() => setDirty(false), [props.initialValue]);
@@ -19,7 +21,9 @@ const TextEditor = (props) => {
         const objName = props.objName;
         const data = { [objName]: content, id: props.id };
         const response = await fetchAPI(props.src, props.type, data);
-        console.log(response);
+        if (response.status === 401) {
+          return navigate("/logout");
+        }
       }
     }
   };

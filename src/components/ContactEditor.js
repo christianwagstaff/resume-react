@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContactEditor = (props) => {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   // Get Data From API on Load
   useEffect(() => {
@@ -39,6 +41,12 @@ const ContactEditor = (props) => {
     const deleteContact = {
       id: id,
     };
+    const confirm = window.confirm(
+      "Are you sure you want to delete this contact?"
+    );
+    if (!confirm) {
+      return;
+    }
     const response = await fetch(
       `https://whispering-springs-24965.herokuapp.com/api/contact`,
       {
@@ -51,6 +59,9 @@ const ContactEditor = (props) => {
         body: JSON.stringify(deleteContact),
       }
     );
+    if (response.status === 401) {
+      return navigate("/logout");
+    }
     const contact = await response.json();
     if (contact.msg === "Contact Deleted") {
       const updatedData = removeAtIndex(data, index);
@@ -101,7 +112,7 @@ const ContactEditor = (props) => {
               className="delete"
               onClick={(e) => deleteItem(e, contact._id, index)}
             >
-              Delete
+              X
             </button>
           </form>
         ))}
